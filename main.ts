@@ -4,15 +4,14 @@ input.onButtonPressed(Button.A, function () {
 input.onGesture(Gesture.Shake, function () {
     soundExpression.hello.playUntilDone()
 })
-input.onGesture(Gesture.EightG, function () {
-    soundExpression.twinkle.playUntilDone()
-})
 input.onButtonPressed(Button.B, function () {
     soundExpression.happy.playUntilDone()
 })
-music.startMelody(music.builtInMelody(Melodies.Entertainer), MelodyOptions.Once)
+music.startMelody(music.builtInMelody(Melodies.PowerUp), MelodyOptions.Once)
 basic.forever(function () {
-    if (input.lightLevel() < 50) {
-        soundExpression.yawn.playUntilDone()
+    if (input.lightLevel() < 30) {
+        basic.showNumber(randint(1, 6))
+        soundExpression.hello.playUntilDone()
+        basic.clearScreen()
     }
 })
